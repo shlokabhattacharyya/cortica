@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Technology — Anchor</title>
+<meta name="description" content="Anchor is the open, source-agnostic infrastructure layer for neural data."/>
+<meta name="theme-color" content="#000000"/>
+<meta property="og:title" content="Technology — Anchor"/>
+<meta property="og:description" content="Anchor is the open, source-agnostic infrastructure layer for neural data."/>
+<meta property="og:image" content="assets/og-image.png"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/png" href="assets/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000;--text:#fff;--muted:rgba(255,255,255,.55);--faint:rgba(255,255,255,.32);
+    --line:rgba(255,255,255,.12);--sans:'Geist','Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--bg);scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;
+    letter-spacing:.2px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+  .col{max-width:720px}
+
+  nav{display:flex;align-items:center;justify-content:space-between;height:76px;
+    border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:10}
+  .mark{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;letter-spacing:.3px}
+  .mark img{height:22px;width:auto;display:block}
+  .navlinks{display:flex;gap:28px}
+  .navlinks a{display:inline-flex;align-items:baseline;gap:6px;font-size:14px;font-weight:400;
+    color:var(--muted);transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  .navlinks a.active{color:var(--text)}
+  .tag{font-size:11px;color:var(--faint);border:1px solid rgba(255,255,255,.16);
+    border-radius:3px;padding:1px 4px;line-height:1}
+  .navlinks a.active .tag{color:var(--text);border-color:rgba(255,255,255,.5)}
+
+  main{padding:120px 0 40px}
+  h1{font-weight:700;font-size:clamp(40px,6vw,64px);line-height:1.05;letter-spacing:-.5px;margin-bottom:26px}
+  .lead{font-size:18px;font-weight:400;color:var(--muted);max-width:560px;line-height:1.65}
+
+  .block{margin-top:52px;max-width:600px}
+  .block h2{font-size:20px;font-weight:500;letter-spacing:-.1px;margin-bottom:10px}
+  .block p{font-size:16px;color:var(--muted);line-height:1.7}
+
+  .stack{margin:44px auto 0;display:flex;flex-direction:column;align-items:center;max-width:480px}
+  .label-row{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .chips span{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:7px 12px}
+  .spine{width:1px;height:38px;background:var(--line)}
+  .tier{width:100%;border:1px solid var(--line);border-radius:4px;padding:16px 20px;text-align:center;background:#000}
+  .tname{font-size:15px;font-weight:500}
+  .tsub{font-size:13px;color:var(--muted);margin-top:5px}
+  .cap{font-size:14px;color:var(--muted);margin:26px auto 0;max-width:460px;text-align:center}
+
+  .stats{display:flex;gap:52px;flex-wrap:wrap;margin-top:30px}
+  .stat .num{font-size:clamp(30px,5vw,46px);font-weight:700;letter-spacing:-1px;line-height:1}
+  .stat .cap2{font-size:13px;color:var(--muted);margin-top:8px;max-width:180px}
+
+  .access{margin-top:60px;padding-top:30px;border-top:1px solid var(--line);max-width:600px}
+  .access h2{font-size:22px;font-weight:500;letter-spacing:-.2px;margin-bottom:20px;max-width:440px}
+  .btn{display:inline-block;font-size:14px;font-weight:500;background:var(--text);color:#000;
+    padding:12px 22px;border-radius:2px;transition:opacity .2s}
+  .btn:hover{opacity:.82}
+  .email{font-size:14px;color:var(--muted);margin-top:16px}
+
+  .list{margin-top:44px;max-width:640px;border-top:1px solid var(--line)}
+  .item{display:block;padding:22px 0;border-bottom:1px solid var(--line)}
+  .item .yr{font-size:12px;letter-spacing:1px;color:var(--faint)}
+  .item .ttl{font-size:17px;font-weight:500;color:var(--muted);margin:5px 0 4px;transition:color .2s}
+  .item:hover .ttl{color:var(--text)}
+  .item .ds{font-size:14px;color:var(--muted)}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .in .reveal{opacity:1;transform:none}
+
+  footer{border-top:1px solid var(--line);margin-top:100px;padding:34px 0 40px;
+    display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  footer .fmark{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500}
+  footer .fmark img{height:18px;width:auto;display:block}
+  footer .cprt{font-size:12px;color:var(--faint);margin-top:7px}
+  footer .social a{color:var(--muted);transition:color .2s;display:inline-flex}
+  footer .social a:hover{color:var(--text)}
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px}
+    nav{height:64px}
+    .navlinks{gap:16px}
+    main{padding:80px 0 24px}
+    .stats{gap:32px}
+    footer{margin-top:64px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="mark" href="index.html" aria-label="Anchor home"><img src="assets/logo-white.png" alt=""/> Anchor</a>
+    <div class="navlinks">
+      <a href="research.html">research<span class="tag">r</span></a>
+      <a href="technology.html" class="active" aria-current="page">technology<span class="tag">t</span></a>
+      <a href="about.html">about<span class="tag">a</span></a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="col">
+      <h1 class="reveal">Technology</h1>
+      <p class="lead reveal">One layer, any neural source. Source-agnostic by design, so nothing
+        downstream cares what recorded the signal.</p>
+
+      <div class="stack reveal">
+        <div class="label-row">heterogeneous sources</div>
+        <div class="chips"><span>consumer EEG</span><span>clinical</span><span>implant</span><span>in-vitro</span></div>
+        <div class="spine"></div>
+        <div class="tier"><div class="tname">Harmonization</div><div class="tsub">clean &middot; align montages &middot; standardize</div></div>
+        <div class="spine"></div>
+        <div class="tier"><div class="tname">Standard format</div><div class="tsub">one clean, analysis-ready representation</div></div>
+        <div class="spine"></div>
+        <div class="tier"><div class="tname">Foundation model &amp; APIs</div><div class="tsub">embeddings &middot; decoding &middot; fine-tuning</div></div>
+      </div>
+      <p class="cap reveal">Source-agnostic by design — nothing downstream cares what recorded the signal.</p>
+
+      <div class="block reveal">
+        <h2>The standard</h2>
+        <p>A single, analysis-ready format that stays stable as sources change, so a tool built once
+          keeps working as new devices appear.</p>
+      </div>
+      <div class="block reveal">
+        <h2>Built for models</h2>
+        <p>On top of the standard sit neural foundation models: embeddings for search and comparison,
+          decoding for real-time use, and fine-tuning for specific tasks.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <span class="fmark"><img src="assets/logo-white.png" alt=""/> Anchor</span>
+      <div class="cprt">&copy; 2026 Anchor &middot; San Francisco</div>
+    </div>
+    <div class="social">
+      <a href="#" aria-label="Anchor on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.4 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.56-2.3 3.2V21h-4z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('main').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
